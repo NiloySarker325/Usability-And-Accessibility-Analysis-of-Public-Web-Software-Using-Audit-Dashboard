@@ -1,0 +1,58 @@
+url,violation_id,impact,description,css_selector,html_snippet
+https://www.mankatomn.gov/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://www.mankatomn.gov/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://www.mankatomn.gov/,region,moderate,Ensure all page content is contained by landmarks,h1,<h1>Access Denied</h1>
+https://www.mankatomn.gov/,region,moderate,Ensure all page content is contained by landmarks,p:nth-child(2),"<p>
+Reference #18.6a03b17.1793290368.612f44f
+</p>"
+https://www.mankatomn.gov/,region,moderate,Ensure all page content is contained by landmarks,p:nth-child(3),<p>https://errors.edgesuite.net/18.6a03b17.1793290368.612f44f</p>
+https://www.mnsu.edu/,heading-order,moderate,Ensure the order of headings is semantically correct,.column-promo-block:nth-child(3) > .container-fluid > .column-promo-block__body > .promo-card:nth-child(1) > .promo-card__body.rich-text-area > h3,"<h3 class=""h4"">Become a Student</h3>"
+https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,"article[aria-labelledby=""homepage-hero""]","<article role=""contentinfo"" aria-labelledby=""homepage-hero"">"
+https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,"article[aria-labelledby=""traveler-information""]","<article role=""contentinfo"" aria-labelledby=""traveler-information"">"
+https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,"article[aria-labelledby=""take-action""]","<article role=""contentinfo"" aria-labelledby=""take-action"" style=""clear: left;"">"
+https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,#links-footer,"<footer aria-labelledby=""links-footer"" id=""links-footer"" role=""navigation"">"
+https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,#main-footer,"<footer aria-labelledby=""main-footer"" id=""main-footer"" role=""navigation"">"
+https://www.dot.state.mn.us/,landmark-contentinfo-is-top-level,moderate,Ensure the contentinfo landmark is at top level,"article[aria-labelledby=""homepage-hero""]","<article role=""contentinfo"" aria-labelledby=""homepage-hero"">"
+https://www.dot.state.mn.us/,landmark-contentinfo-is-top-level,moderate,Ensure the contentinfo landmark is at top level,"article[aria-labelledby=""traveler-information""]","<article role=""contentinfo"" aria-labelledby=""traveler-information"">"
+https://www.dot.state.mn.us/,landmark-contentinfo-is-top-level,moderate,Ensure the contentinfo landmark is at top level,"article[aria-labelledby=""take-action""]","<article role=""contentinfo"" aria-labelledby=""take-action"" style=""clear: left;"">"
+https://www.dot.state.mn.us/,landmark-no-duplicate-contentinfo,moderate,Ensure the document has at most one contentinfo landmark,"article[aria-labelledby=""homepage-hero""]","<article role=""contentinfo"" aria-labelledby=""homepage-hero"">"
+https://www.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://www.mn.gov/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://www.mn.gov/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://www.mn.gov/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://www.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://www.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://www.exploreminnesota.com/,meta-refresh,critical,"Ensure <meta http-equiv=""refresh""> is not used for delayed refresh","meta[http-equiv=""refresh""]","<meta http-equiv=""refresh"" content=""360"">"
+https://www.mnhs.org/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""Keepers Tour""]","<img src=""https://www.mnhs.org/hubfs/crm-properties-file-values/27_SRL_KeepersTourFall_Calendar.jpg"" alt=""Keepers Tour"" loading=""lazy"">"
+https://www.mnhs.org/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""Lanterns & Legends""]","<img src=""https://www.mnhs.org/hubfs/crm-properties-file-values/1216724272092042.U1Nat2slI3VLlpEUwzeS_height640.png"" alt=""Lanterns &amp; Legends"" loading=""lazy"">"
+https://www.mnhs.org/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""Summit Avenue Walking Tours""]","<img src=""https://www.mnhs.org/hubfs/crm-properties-file-values/26_jjh_walking_tours_cal-4.png"" alt=""Summit Avenue Walking Tours"" loading=""lazy"">"
+https://www.mnhs.org/,landmark-unique,moderate,Ensure landmarks are unique,"header > .top-nav-main > .content-wrapper > .top-nav-menu > .hs_cos_wrapper_type_simple_menu.hs_cos_wrapper[data-hs-cos-type=""simple_menu""] > .hs-menu-wrapper[role=""navigation""][aria-label=""Navigation Menu""]","<div class=""hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"" role=""navigation"" data-sitemap-name="""" data-menu-id="""" aria-label=""Navigation Menu"">"
+https://www.mnhs.org/,list,serious,Ensure that lists are structured correctly,"header > .top-nav-main > .content-wrapper > .top-nav-menu > .hs_cos_wrapper_type_simple_menu.hs_cos_wrapper[data-hs-cos-type=""simple_menu""] > .hs-menu-wrapper[role=""navigation""][aria-label=""Navigation Menu""] > ul",<ul>
+https://www.mndigital.org/,label-title-only,serious,"Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",#search_field,"<select class=""search_field"" id=""search_field"" name=""search_field"" title=""Targeted search options"">"
+https://www.mndigital.org/,region,moderate,Ensure all page content is contained by landmarks,.bg-light,"<div class=""bg-light pt-3"">"
+https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(1) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+          Data, Statistics, and Legislation 
+          <span class=""caret""></span>
+          </span>"
+https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(2) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+          Diseases and Conditions
+          <span class=""caret""></span>
+          </span>"
+https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(3) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+          Health Care Facilities, Providers, and Insurance
+          <span class=""caret""></span>
+          </span>"
+https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(4) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+          Healthy Communities, Environments, and Workplaces
+          <span class=""caret""></span>
+          </span>"
+https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(5) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+          Individual and Family Health
+          <span class=""caret""></span>
+          </span>"
+https://www.web.health.state.mn.us/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.field--name-field-caption > .field__item,"<div class=""field__item"">Office of American Indian Health and Tribal Relations </div>"
+https://www.web.health.state.mn.us/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"" dir=""ltr"" class="" js"">"
