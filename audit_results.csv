@@ -1,58 +1,416 @@
 url,violation_id,impact,description,css_selector,html_snippet
-https://www.mankatomn.gov/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
-https://www.mankatomn.gov/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
-https://www.mankatomn.gov/,region,moderate,Ensure all page content is contained by landmarks,h1,<h1>Access Denied</h1>
-https://www.mankatomn.gov/,region,moderate,Ensure all page content is contained by landmarks,p:nth-child(2),"<p>
-Reference #18.6a03b17.1793290368.612f44f
-</p>"
-https://www.mankatomn.gov/,region,moderate,Ensure all page content is contained by landmarks,p:nth-child(3),<p>https://errors.edgesuite.net/18.6a03b17.1793290368.612f44f</p>
-https://www.mnsu.edu/,heading-order,moderate,Ensure the order of headings is semantically correct,.column-promo-block:nth-child(3) > .container-fluid > .column-promo-block__body > .promo-card:nth-child(1) > .promo-card__body.rich-text-area > h3,"<h3 class=""h4"">Become a Student</h3>"
-https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,"article[aria-labelledby=""homepage-hero""]","<article role=""contentinfo"" aria-labelledby=""homepage-hero"">"
-https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,"article[aria-labelledby=""traveler-information""]","<article role=""contentinfo"" aria-labelledby=""traveler-information"">"
-https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,"article[aria-labelledby=""take-action""]","<article role=""contentinfo"" aria-labelledby=""take-action"" style=""clear: left;"">"
-https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,#links-footer,"<footer aria-labelledby=""links-footer"" id=""links-footer"" role=""navigation"">"
-https://www.dot.state.mn.us/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,#main-footer,"<footer aria-labelledby=""main-footer"" id=""main-footer"" role=""navigation"">"
-https://www.dot.state.mn.us/,landmark-contentinfo-is-top-level,moderate,Ensure the contentinfo landmark is at top level,"article[aria-labelledby=""homepage-hero""]","<article role=""contentinfo"" aria-labelledby=""homepage-hero"">"
-https://www.dot.state.mn.us/,landmark-contentinfo-is-top-level,moderate,Ensure the contentinfo landmark is at top level,"article[aria-labelledby=""traveler-information""]","<article role=""contentinfo"" aria-labelledby=""traveler-information"">"
-https://www.dot.state.mn.us/,landmark-contentinfo-is-top-level,moderate,Ensure the contentinfo landmark is at top level,"article[aria-labelledby=""take-action""]","<article role=""contentinfo"" aria-labelledby=""take-action"" style=""clear: left;"">"
-https://www.dot.state.mn.us/,landmark-no-duplicate-contentinfo,moderate,Ensure the document has at most one contentinfo landmark,"article[aria-labelledby=""homepage-hero""]","<article role=""contentinfo"" aria-labelledby=""homepage-hero"">"
-https://www.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
-https://www.mn.gov/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
-https://www.mn.gov/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
-https://www.mn.gov/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
-https://www.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
-https://www.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+https://mn.gov/admin/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/admin/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/admin/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/admin/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/admin/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/admin/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
                     
                          <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
                     
                     </div>"
-https://www.exploreminnesota.com/,meta-refresh,critical,"Ensure <meta http-equiv=""refresh""> is not used for delayed refresh","meta[http-equiv=""refresh""]","<meta http-equiv=""refresh"" content=""360"">"
-https://www.mnhs.org/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""Keepers Tour""]","<img src=""https://www.mnhs.org/hubfs/crm-properties-file-values/27_SRL_KeepersTourFall_Calendar.jpg"" alt=""Keepers Tour"" loading=""lazy"">"
-https://www.mnhs.org/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""Lanterns & Legends""]","<img src=""https://www.mnhs.org/hubfs/crm-properties-file-values/1216724272092042.U1Nat2slI3VLlpEUwzeS_height640.png"" alt=""Lanterns &amp; Legends"" loading=""lazy"">"
-https://www.mnhs.org/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""Summit Avenue Walking Tours""]","<img src=""https://www.mnhs.org/hubfs/crm-properties-file-values/26_jjh_walking_tours_cal-4.png"" alt=""Summit Avenue Walking Tours"" loading=""lazy"">"
-https://www.mnhs.org/,landmark-unique,moderate,Ensure landmarks are unique,"header > .top-nav-main > .content-wrapper > .top-nav-menu > .hs_cos_wrapper_type_simple_menu.hs_cos_wrapper[data-hs-cos-type=""simple_menu""] > .hs-menu-wrapper[role=""navigation""][aria-label=""Navigation Menu""]","<div class=""hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"" role=""navigation"" data-sitemap-name="""" data-menu-id="""" aria-label=""Navigation Menu"">"
-https://www.mnhs.org/,list,serious,Ensure that lists are structured correctly,"header > .top-nav-main > .content-wrapper > .top-nav-menu > .hs_cos_wrapper_type_simple_menu.hs_cos_wrapper[data-hs-cos-type=""simple_menu""] > .hs-menu-wrapper[role=""navigation""][aria-label=""Navigation Menu""] > ul",<ul>
-https://www.mndigital.org/,label-title-only,serious,"Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",#search_field,"<select class=""search_field"" id=""search_field"" name=""search_field"" title=""Targeted search options"">"
-https://www.mndigital.org/,region,moderate,Ensure all page content is contained by landmarks,.bg-light,"<div class=""bg-light pt-3"">"
-https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(1) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+https://www.mda.state.mn.us/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,"p > a[href$=""beginning-farmer-grant""]","<a href=""/beginning-farmer-grant"">Beginning Farmer Equipment and Infrastructure Grant</a>"
+https://www.mda.state.mn.us/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,"a[data-twitter-extracted-i1793294239655515326=""true""]","<a class=""twitter-timeline ext"" href=""https://twitter.com/MNagriculture?ref_src=twsrc%5Etfw"" data-extlink="""" target=""_blank"" rel=""noopener"" title=""(opens in a new window)"" data-twitter-extracted-i1793294239655515326=""true"">Tweets by MNagriculture</a>"
+https://www.mda.state.mn.us/,landmark-no-duplicate-banner,moderate,Ensure the document has at most one banner landmark,header,"<header class=""clearfix"">"
+https://www.mda.state.mn.us/,landmark-no-duplicate-contentinfo,moderate,Ensure the document has at most one contentinfo landmark,footer,"<footer class=""footer container"" role=""contentinfo"">"
+https://www.mda.state.mn.us/,landmark-unique,moderate,Ensure landmarks are unique,footer,"<footer class=""footer container"" role=""contentinfo"">"
+https://www.mda.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,.social-media-content-wrapper,"<div class=""social-media-content-wrapper"">"
+https://mn.gov/commerce/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/commerce/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/commerce/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/commerce/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/commerce/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/commerce/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://mn.gov/doc/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/doc/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/doc/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/doc/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/doc/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/doc/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://education.mn.gov/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"">"
+https://education.mn.gov/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,"<html lang=""en"">"
+https://education.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.verify-message,"<p class=""verify-message"">
+          Verifying your browser before proceeding...
+        </p>"
+https://education.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.incident-id,"<div class=""incident-id"">
+      <p>
+        <span class=""bold"">Incident ID:</span>
+        1966515c-dt3i-46d0-a691-971a33d60fff
+      </p>
+    </div>"
+https://mn.gov/deed/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/deed/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/deed/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/deed/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/deed/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/deed/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://www.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(1) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
           Data, Statistics, and Legislation 
           <span class=""caret""></span>
           </span>"
-https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(2) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+https://www.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(2) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
           Diseases and Conditions
           <span class=""caret""></span>
           </span>"
-https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(3) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+https://www.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(3) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
           Health Care Facilities, Providers, and Insurance
           <span class=""caret""></span>
           </span>"
-https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(4) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+https://www.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(4) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
           Healthy Communities, Environments, and Workplaces
           <span class=""caret""></span>
           </span>"
-https://www.web.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(5) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
+https://www.health.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,".dropdown[data-level=""1""][aria-level=""1""]:nth-child(5) > .dropdown-toggle.tb-megamenu-no-link[aria-label=""Open main submenu""]","<span class=""dropdown-toggle tb-megamenu-no-link"" aria-label=""Open main submenu"" aria-expanded=""false"" tabindex=""0"">
           Individual and Family Health
           <span class=""caret""></span>
           </span>"
-https://www.web.health.state.mn.us/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.field--name-field-caption > .field__item,"<div class=""field__item"">Office of American Indian Health and Tribal Relations </div>"
-https://www.web.health.state.mn.us/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"" dir=""ltr"" class="" js"">"
+https://www.health.state.mn.us/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.field--name-field-caption > .field__item,"<div class=""field__item"">Office of American Indian Health and Tribal Relations </div>"
+https://www.health.state.mn.us/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"" dir=""ltr"" class="" js"">"
+https://ohe.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://ohe.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.text-muted,"<p class=""text-muted credit"">
+		You reached this page when trying to access
+		<b>https://ohe.mn.gov/</b> from
+		<b>134.29.63.182</b> on
+		<b>October 29 2026, 17:17:28 UTC</b>
+	</p>"
+https://ohe.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.text-muted > b:nth-child(1),<b>https://ohe.mn.gov/</b>
+https://ohe.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,b:nth-child(2),<b>134.29.63.182</b>
+https://ohe.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,b:nth-child(3),"<b>October 29 2026, 17:17:28 UTC</b>"
+https://ohe.mn.gov/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"">"
+https://ohe.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.container,"<div class=""container"">"
+https://ohe.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,body > .footer,"<div class=""footer"">
+    <div class=""footer"">
+	<p class=""text-muted credit"">
+		You reached this page when trying to access
+		<b>https://ohe.mn.gov/</b> from
+		<b>134.29.63.182</b> on
+		<b>October 29 2026, 17:17:28 UTC</b>
+	</p>
+</div>
+</div>"
+https://mn.gov/mdhr/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/mdhr/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/mdhr/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/mdhr/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/mdhr/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/mdhr/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://mn.gov/dhs/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/dhs/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/dhs/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/dhs/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/dhs/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/dhs/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://mn.gov/miac/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/miac/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/miac/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/miac/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/miac/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/miac/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://mn.gov/mnit/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/mnit/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/mnit/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/mnit/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/mnit/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/mnit/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://www.dli.mn.gov/,button-name,critical,Ensure buttons have discernible text,.search-icon,"<button class=""search-icon btn btn-default"" type=""submit""></button>"
+https://www.dli.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.goog-te-gadget,"<div class=""skiptranslate goog-te-gadget"" dir=""ltr"" style="""">"
+https://www.dli.mn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.VIpgJd-ZVi9od-l4eHX-hSRGPd,"<a class=""VIpgJd-ZVi9od-l4eHX-hSRGPd"" href=""https://translate.google.com"" target=""_blank""><img src=""https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png"" width=""37px"" height=""14px"" style=""padding-right: 3px"" alt=""Google Translate"">Translate</a>"
+https://www.dli.mn.gov/,heading-order,moderate,Ensure the order of headings is semantically correct,.col-lg-6.col-12:nth-child(1) > .row > .col-sm-7.featured-description.col-12 > a > h4,"<h4>
+              Minnesota State Building Codes
+            </h4>"
+https://www.dli.mn.gov/,image-redundant-alt,minor,Ensure image alternative is not repeated as text,"img[alt=""workers' compensation""]","<img src=""/sites/default/files/iStock_000017899510Medium_300x100.jpg"" alt=""workers' compensation"">"
+https://www.dli.mn.gov/,label,critical,Ensure every form element has a label,.col-3 > input,"<input type=""text"">"
+https://www.dli.mn.gov/,landmark-unique,moderate,Ensure landmarks are unique,.navbar,"<nav class=""navbar navbar-dark navbar-expand-md global-nav"">"
+https://www.dli.mn.gov/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,"<html lang=""en"" dir=""ltr"" prefix=""content: http://purl..."" class="" js"" style=""height: 100%;"">"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.visually-hidden,"<a href=""#main-content"" class=""visually-hidden focusable"">
+    Skip to main content
+  </a>"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,#google_translate_element,"<div id=""google_translate_element"">"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.logo,"<div class=""logo col-4"">
+          <a href=""/""><img src=""/themes/DLI/images/mndli-logo-reverse.png"" alt=""Minnesota Department of Labor Logo""></a>
+        </div>"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.col-9,"<div class=""col-9 scd-nav"">"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.col-3 > input,"<input type=""text"">"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,.home-nav > .container > .row:nth-child(2),"<div class=""row"">
+        
+        <div class=""hero col-12"">
+          <img src=""/themes/DLI/images/hero-image.png"" alt=""hero-image"">
+        </div>
+      </div>"
+https://www.dli.mn.gov/,region,moderate,Ensure all page content is contained by landmarks,footer,<footer>
+https://mn.gov/mmb/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://mn.gov/mmb/,html-has-lang,serious,Ensure every HTML document has a lang attribute,html,<html>
+https://mn.gov/mmb/,landmark-one-main,moderate,Ensure the document has a main landmark,html,<html>
+https://mn.gov/mmb/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,<html>
+https://mn.gov/mmb/,region,moderate,Ensure all page content is contained by landmarks,.fontes > center,<center>
+https://mn.gov/mmb/,region,moderate,Ensure all page content is contained by landmarks,center > div:nth-child(2),"<div>
+                    
+                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+                    
+                    </div>"
+https://www.mnsure.org/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.btn,"<input type=""submit"" class=""btn btn-success btn-sm"" value=""Submit"">"
+https://www.mnsure.org/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.text-muted,"<p class=""text-muted credit"">
+		You reached this page when trying to access
+		<b>https://www.mnsure.org/</b> from
+		<b>134.29.63.182</b> on
+		<b>October 29 2026, 17:17:45 UTC</b>
+	</p>"
+https://www.mnsure.org/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,.text-muted > b:nth-child(1),<b>https://www.mnsure.org/</b>
+https://www.mnsure.org/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,b:nth-child(2),<b>134.29.63.182</b>
+https://www.mnsure.org/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,b:nth-child(3),"<b>October 29 2026, 17:17:45 UTC</b>"
+https://www.mnsure.org/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"">"
+https://www.mnsure.org/,region,moderate,Ensure all page content is contained by landmarks,.container,"<div class=""container"">"
+https://www.mnsure.org/,region,moderate,Ensure all page content is contained by landmarks,body > .footer,"<div class=""footer"">
+    <div class=""footer"">
+	<p class=""text-muted credit"">
+		You reached this page when trying to access
+		<b>https://www.mnsure.org/</b> from
+		<b>134.29.63.182</b> on
+		<b>October 29 2026, 17:17:45 UTC</b>
+	</p>
+</div>
+</div>"
+https://www.dnr.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,#cat-primary-1051959273,"<div id=""cat-primary-1051959273"" aria-expanded=""true"" class=""leftnav-list"">"
+https://www.dnr.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,#cat-secondary-1597264592,"<div id=""cat-secondary-1597264592"" aria-expanded=""true"" class=""leftnav-list"">"
+https://www.dnr.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,#cat-secondary-720563053,"<div id=""cat-secondary-720563053"" aria-expanded=""true"" class=""leftnav-list"">"
+https://www.dnr.state.mn.us/,aria-allowed-attr,critical,Ensure an element's role supports its ARIA attributes,#cat-secondary-1427371388,"<div id=""cat-secondary-1427371388"" aria-expanded=""true"" class=""leftnav-list"">"
+https://www.dnr.state.mn.us/,aria-input-field-name,serious,Ensure every ARIA input field has an accessible name,.carousel-inner,"<div class=""carousel-inner"" role=""listbox"">"
+https://www.dnr.state.mn.us/,aria-required-children,critical,Ensure elements with an ARIA role that require child roles contain them,.carousel-inner,"<div class=""carousel-inner"" role=""listbox"">"
+https://www.dnr.state.mn.us/,landmark-banner-is-top-level,moderate,Ensure the banner landmark is at top level,#navbar,"<header class=""navbar navbar-dnr homepage"" id=""navbar"" role=""banner"">"
+https://www.dnr.state.mn.us/,landmark-no-duplicate-banner,moderate,Ensure the document has at most one banner landmark,.header-dnr,"<div class=""header header-dnr"" role=""banner"">"
+https://www.dnr.state.mn.us/,landmark-unique,moderate,Ensure landmarks are unique,"section[data-nosnippet=""true""] > aside","<aside aria-label=""carousel pause/play control""><button class=""carousel-pause-button"" title=""Pause/Play carousel button can be used by screen reader users to stop carousel animations"">Pause Carousel</button></aside>"
+https://www.dnr.state.mn.us/,landmark-unique,moderate,Ensure landmarks are unique,.header-dnr,"<div class=""header header-dnr"" role=""banner"">"
+https://www.dnr.state.mn.us/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,"<html data-org=""MN_DNR"" lang=""en"" dir=""ltr"" class="" js"">"
+https://www.dnr.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,#new-window-note,"<span id=""new-window-note"" class=""visually-hidden sr-only"">This link opens in a new window.</span>"
+https://www.dnr.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,#new-email-note,"<span id=""new-email-note"" class=""visually-hidden sr-only"">This link opens a new email.</span>"
+https://www.dnr.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,#fraud-banner-body,"<div id=""fraud-banner-body""><div class=""fraud-banner""><p><a href=""/aboutdnr/reporting-suspected-fraud.html"">Report Potential Fraud</a> | DNR is committed to ensuring public funds are used for their lawful and intended purposes.</p></div></div>"
+https://www.dnr.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,.top_bar,"<div class=""top_bar homepage hidden-xs""><div class=""container""><div class=""region region-top-bar""> <!--googleoff: snippet--> <section data-nosnippet=""true""><ol class=""breadcrumb""><li> Home</li><li class=""active""></li></ol> </section> <!--googleon: snippet--></div></div></div>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href$=""hunting.html""]","<a href=""/state-parks/hunting.html"" tabindex=""1"">"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,".homepage_feature.prefetch[href$=""firearms-safety.html""]","<a class=""homepage_feature prefetch"" href=""/safety/firearms-safety.html"" tabindex=""1.1"">"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"p > a[href$=""firearms-safety.html""]","<a href=""/safety/firearms-safety.html"" tabindex=""1.2"">always practice safe firearms handling</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href=""/safety/treestand/index.html""]","<a href=""/safety/treestand/index.html"" tabindex=""1.3"">hunting from an elevated stand</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,".homepage_feature.prefetch[href$=""cost-share.html""]","<a class=""homepage_feature prefetch"" href=""/woodlands/cost-share.html"" tabindex=""2.1"">"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"p > a[href$=""cost-share.html""]","<a href=""/woodlands/cost-share.html"" tabindex=""2.2"">Field to Forest Cost Share</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href$=""els.html""]","<a class=""homepage_feature prefetch"" href=""/rlp/els.html"" tabindex=""3.1"">"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"p > a[href$=""online-sales.html""]","<a href=""/licenses/online-sales.html"" tabindex=""3.2"">buying your deer license early</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href$=""agents-map.html""]","<a href=""/licenses/agents-map.html"" tabindex=""3.3"">is selling them this year</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href=""/cwd/index.html""]","<a class=""homepage_feature prefetch"" href=""/cwd/index.html"" tabindex=""4.1"">"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href$=""surveillance-block.html""]","<a href=""/cwd/surveillance-block.html"" tabindex=""4.2"">with mandatory sampling in the southwest part of the state</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href$=""plan-map.html""]","<a href=""/cwd/plan-map.html"" tabindex=""4.3"">this interactive map</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href$=""cwd-testing.html""]","<a href=""/cwd/cwd-testing.html"" tabindex=""4.4"">CWD testing is available</a>"
+https://www.dnr.state.mn.us/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,"a[href=""/deerimports/index.html""]","<a href=""/deerimports/index.html"" tabindex=""4.5"">carcass disposal rules</a>"
+https://www.pca.state.mn.us/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"">"
+https://www.pca.state.mn.us/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,"<html lang=""en"">"
+https://www.pca.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,.verify-message,"<p class=""verify-message"">
+          Verifying your browser before proceeding...
+        </p>"
+https://www.pca.state.mn.us/,region,moderate,Ensure all page content is contained by landmarks,.incident-id,"<div class=""incident-id"">
+      <p>
+        <span class=""bold"">Incident ID:</span>
+        3555b6fd-e5wu-4ba4-8f6d-a4178148eb4a
+      </p>
+    </div>"
+https://www.bemidjistate.edu/,region,moderate,Ensure all page content is contained by landmarks,.bsu-hero-item,"<div class=""bsu-hero-item is-active"" data-bsu-hero-item="""">"
+https://www.metrostate.edu/,region,moderate,Ensure all page content is contained by landmarks,.col-9,"<div class=""col-9 col-md-6"">
+        <a href=""/"">
+          <img src=""/themes/custom/metrostate/img/metro-state-logo.png"" id=""metro--navbar-brand-img"" alt=""Metro State University (Home)"">
+        </a>
+      </div>"
+https://www.mnstate.edu/,aria-allowed-role,minor,Ensure role attribute has an appropriate value for the element,#orbit-slide-1,"<li id=""orbit-slide-1"" class=""orbit-slide is-active"" role=""tabpanel"" aria-labelledby=""orbit-bullet-1"" aria-label=""Slide 2 of 11"" data-slide=""1"" aria-live=""polite"" style=""display: block;"">"
+https://www.mnstate.edu/,aria-required-children,critical,Ensure elements with an ARIA role that require child roles contain them,"ul[data-dropdown-menu=""s2ys49-dropdown-menu""]","<ul class=""dropdown menu align-right top-menu"" data-dropdown-menu=""s2ys49-dropdown-menu"" role=""menubar"">"
+https://www.mnstate.edu/,heading-order,moderate,Ensure the order of headings is semantically correct,.grid-margin-x > h3,"<h3 style=""text-align: center; font-size: 2em; font-weight: bold;""><span style=""color: #c8102e;"">BLAZE</span> YOUR TRAIL.</h3>"
+https://www.mnstate.edu/,heading-order,moderate,Ensure the order of headings is semantically correct,.footer-column.medium-3.small-12:nth-child(1) > ul > li:nth-child(1) > h4,<h4>MINNESOTA STATE MOORHEAD</h4>
+https://www.mnstate.edu/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html lang=""en"" class=""ui-mobile ui-mobile-rendering"">"
+https://www.mnstate.edu/,landmark-unique,moderate,Ensure landmarks are unique,.auto.cell > .right-menu,"<nav class=""right-menu"">"
+https://www.mnstate.edu/,list,serious,Ensure that lists are structured correctly,#orbit-slides,"<ul class=""orbit-container"" id=""orbit-slides"" tabindex=""0"" style=""height: 560px;"">"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.over-content,"<div class=""over-content"">"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#FlameTitle,"<div id=""FlameTitle"">
+    <h1 class=""flame"">
+        <span>
+            <i class=""fa-kit fa-msum-flame fa-2xl""></i>Minnesota State Moorhead
+        </span>
+    </h1>
+</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.main-content,"<div class=""main-content"">"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#main-content > div:nth-child(3) > div:nth-child(1),<div>
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Request Information""] > .icon-teaser-title","<div class=""icon-teaser-title"">Request Information</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Visit Campus""] > .icon-teaser-title","<div class=""icon-teaser-title"">Visit Campus</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Apply Now""] > .icon-teaser-title","<div class=""icon-teaser-title"">Apply Now</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[href$=""contact""][title=""Contact Us""] > .icon-teaser-title","<div class=""icon-teaser-title"">Contact Us</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#main-content > div:nth-child(3) > div:nth-child(4),<div>
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.align-center-middle.grid-margin-x.grid-x > .medium-6.small-12.cell,"<div class=""small-12 medium-6 cell"">"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#label_video_1_0s4is2zw,"<div id=""label_video_1_0s4is2zw"" class=""vertical-video-header"">
+                                            Jett's Top Reasons to Visit Campus
+                                        </div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,div:nth-child(6),<div>
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,div:nth-child(7),<div>
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.large-7.align-center-middle.cell > p:nth-child(1),"<p style=""line-height: 1.2; overflow-wrap: break-word; color: #c8102e; font-size: 2.1em; text-align: left;"">Minnesota State Moorhead is a great place to live and learn and work.</p>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,div:nth-child(8) > .grid-container-wide-pad > .grid-margin-x.grid-x > .large-7.align-center-middle.cell > .pbig,"<p class=""pbig"">Don’t take our word for it. Check out all of the great facts that make Moorhead uniquely positioned to be your college partner.</p>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[href$=""degrees""] > .bragpoint.text-center > .bragpoint-stat","<div class=""bragpoint-stat""><p>128</p></div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[href$=""degrees""] > .bragpoint.text-center > .bragpoint-desc","<div class=""bragpoint-desc"">Majors, emphases and options</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Classes taught by professors""] > .bragpoint.text-center > .bragpoint-stat","<div class=""bragpoint-stat""><p>98<sup>%</sup></p></div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Classes taught by professors""] > .bragpoint.text-center > .bragpoint-desc","<div class=""bragpoint-desc"">Classes taught by professors</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Countries represented""] > .bragpoint.text-center > .bragpoint-stat","<div class=""bragpoint-stat""><p>42</p></div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"a[title=""Countries represented""] > .bragpoint.text-center > .bragpoint-desc","<div class=""bragpoint-desc"">Countries represented</div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#label_video_1_1aysnzkm,"<div id=""label_video_1_1aysnzkm"" class=""video-header"">
+                        What does it mean to be a Dragon?
+                    </div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#label_video_1_myk96br1,"<div id=""label_video_1_myk96br1"" class=""video-header"">
+                        Life as a Dragon
+                    </div>"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.more-videos,"<div class=""more-videos"">"
+https://www.mnstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#main-content > div:nth-child(4),<div>
+https://www.stcloudstate.edu/,image-alt,critical,Ensure <img> elements have alternative text or a role of none or presentation,"img[border=""0""]","<img border=""0"" height=""1"" src=""https://arttrk.com/pixel/?ad_log=referer&amp;action=lead&amp;pixid=b72c0eb4-647c-4601-98a4-ca2995e7472a"" width=""1"">"
+https://www.stcloudstate.edu/,landmark-one-main,moderate,Ensure the document has a main landmark,html,"<html xmlns=""http://www.w3.org/1999/xhtml"" lang=""en"" style=""visibility: visible;"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(1),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/its/portal.aspx"">myHuskyNet</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(2),"<li class=""menu-item"">
+						<a href=""https://directory.stcloudstate.edu"">Directory</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(3),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/campusmap/default.aspx"">Campus Map</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(4),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/events/default.aspx"">Events &amp; Calendars</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(5),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/library/default.aspx"">Library</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(6),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/its/default.aspx"">Technology</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(7),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/advancement/make-a-gift/default.aspx"">Support St. Cloud State</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(8),"<li class=""menu-item"">
+						<a href=""https://today.stcloudstate.edu"">News</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#utility-menu > .menu-item:nth-child(9),"<li class=""menu-item"">
+						<a href=""https://www.stcloudstate.edu/publicsafety/default.aspx"">Campus Safety</a>
+					</li>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,"img[border=""0""]","<img border=""0"" height=""1"" src=""https://arttrk.com/pixel/?ad_log=referer&amp;action=lead&amp;pixid=b72c0eb4-647c-4601-98a4-ca2995e7472a"" width=""1"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.hero__background-image,"<picture class=""hero__background-image"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,h1,"<h1 class=""hero__title add-gap"">Become a Husky Today</h1>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.cta-button-area,"<div class=""cta-button-area"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.image,"<div class=""image"" style=""grid-template-rows: auto; margin: 6rem 0;""><center>
+        <img src=""/_files/images/its-time-to-be-bold.png"" style=""width: 100%; max-width: 300px;"" alt=""It's Time to Be Bold""></center></div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.grid-button-wrapper-2col,"<div class=""grid-button-wrapper-2col"" style=""grid-auto-rows: 1fr;"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.related-content__title,"<h2 class=""related-content__title"">Admissions</h2>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#relatedContentList,"<ul id=""relatedContentList"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,#homepage-news-events,"<div id=""homepage-news-events"">"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-2.col-span-6.lg\:col-span-4:nth-child(1),"<div class=""stats__block col-span-6 lg:col-span-4 lg:col-start-2"">
+            <div>
+                <span>97%</span>
+            </div>
+            <p>Huskies employed in their fields within one year of graduation.</p>
+        </div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-7.col-span-6.lg\:col-span-4:nth-child(2) > p,"<p><a href=""https://www.stcloudstate.edu/academics/default.aspx"">In-demand programs</a> to launch your career.</p>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-2.col-span-6.lg\:col-span-4:nth-child(3),"<div class=""stats__block col-span-6 lg:col-span-4 lg:col-start-2"">
+            <div>
+                <span>2K+</span>
+            </div>
+            <p>Internship opportunities nationwide.</p>
+        </div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-7.col-span-6.lg\:col-span-4:nth-child(4),"<div class=""stats__block col-span-6 lg:col-span-4 lg:col-start-7"">
+            <div>
+                <span>135K</span>
+            </div>
+            <p>Alumni here and around the world to build your network. </p>
+        </div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.stats__title:nth-child(1),"<h2 class=""stats__title"">FOCUSED ON YOUR FUTURE</h2>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.stats__copy > p:nth-child(2),"<p>At St. Cloud State University, we are a community of bold thinkers, learning together on our campus and in the online environment. Huskies innovate alongside expert faculty, in professional settings, or in the services of others.</p>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.stats__copy > p:nth-child(3),"<p>We are a welcoming community who values the differences all of us bring to our learning experiences and our Husky Life. Whether an undergraduate, transfer, or graduate student, a returning adult learner, from the region or around the globe, Our Husky Experience builds toward your future.</p>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.stats__title:nth-child(5),"<h2 class=""stats__title"">UNIVERSITY AWARDS AND HIGHLIGHTS</h2>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-1 > div:nth-child(1),"<div>
+                <img src=""https://www.stcloudstate.edu/_files/images/launch/badge_carnegie_rcu_300x300.png"" alt=""Carnegie - Research Colleges and Universities"" style=""max-width: 125px;"">
+            </div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-5.col-span-3.lg\:col-span-3:nth-child(3) > div,"<div>
+                <img src=""https://www.stcloudstate.edu/_files/images/launch/badge_collegeofdistinction_150x150.png"" alt=""College of Distinction"" style=""max-width: 125px;"">
+            </div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.lg\:col-start-9 > div,"<div>
+                <img src=""https://www.stcloudstate.edu/_files/images/launch/badge_transfer-honor-roll_150x150.png"" alt=""Transfer Honor Roll"" style=""max-width: 125px;"">
+            </div>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,video,"<video class=""feature-photo__background-image"" autoplay=""autoplay"" height=""100%"" loop=""loop"" muted="""" poster=""/_files/images/homepage-18/video-still.jpg"" width=""100%"">
+			<source src=""/_files/video/homepage-summer-2025.mp4"" type=""video/mp4"">
+	</video>"
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,.feature-photo > div,<div>
+https://www.stcloudstate.edu/,region,moderate,Ensure all page content is contained by landmarks,section,"<section class=""connect"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(4),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(300%);"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(5),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(400%);"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(6),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(500%);"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(7),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(600%);"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(8),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(700%);"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(9),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(800%);"">"
+https://www.smsu.edu/,aria-hidden-focus,serious,Ensure aria-hidden elements are not focusable nor contain focusable elements,.flickity-cell.smsu-card.flex-item:nth-child(10),"<div class=""smsu-card flex-item flickity-cell"" aria-hidden=""true"" style=""transform: translateX(900%);"">"
+https://www.smsu.edu/,tabindex,serious,Ensure tabindex attribute values are not greater than 0,#ivy-bot,"<div id=""ivy-bot"" tabindex=""2"" role=""button"" aria-label=""Open chat"" aria-expanded=""false"" aria-disabled=""false"" class=""ivy-circle ivy-intro..."" style=""background-color: rg..."">"
+https://www.winona.edu/,landmark-unique,moderate,Ensure landmarks are unique,.header-top__container > div > .header-links,"<nav class=""header-links"">"
+https://www.winona.edu/,skip-link,moderate,Ensure all skip links have a focusable target,"a[href$=""#main-nav""]","<a class=""skip-link"" href=""#main-nav"">Skip to Navigation</a>"
+https://www.winona.edu/,skip-link,moderate,Ensure all skip links have a focusable target,.toggle-search,"<a class=""skip-link toggle-search"" href=""#main-search"">Skip to Search</a>"
+https://www.minnesotacitymn.gov/,color-contrast,serious,Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,"a[aria-current=""page""] > .menu-text","<span class=""menu-text"">Home</span>"
+https://www.minnesotacitymn.gov/,empty-heading,minor,Ensure headings have discernible text,.fusion-title-10 > .title-heading-left,"<h3 class=""fusion-title-heading title-heading-left fusion-responsive-typography-calculated"" style=""margin:0;--fontSize:30;line-height:var(--awb-typography2-line-height);""></h3>"
+https://www.minnesotacitymn.gov/,empty-heading,minor,Ensure headings have discernible text,.fusion-title-11 > .title-heading-left,"<h3 class=""fusion-title-heading title-heading-left fusion-responsive-typography-calculated"" style=""margin:0;--fontSize:30;line-height:var(--awb-typography2-line-height);""></h3>"
+https://www.minnesotacitymn.gov/,empty-heading,minor,Ensure headings have discernible text,.fusion-title-13 > .title-heading-left,"<h3 class=""fusion-title-heading title-heading-left fusion-responsive-typography-calculated"" style=""margin:0;--fontSize:30;line-height:var(--awb-typography2-line-height);""></h3>"
+https://www.minnesotacitymn.gov/,empty-heading,minor,Ensure headings have discernible text,.fusion-title-14 > .title-heading-left,"<h3 class=""fusion-title-heading title-heading-left fusion-responsive-typography-calculated"" style=""margin:0;--fontSize:30;line-height:var(--awb-typography2-line-height);""></h3>"
+https://www.minnesotacitymn.gov/,region,moderate,Ensure all page content is contained by landmarks,.fusion-builder-column-0,"<div class=""fusion-layout-column..."" style=""--awb-bg-size:cover;..."">"
+https://www.minneapolismn.gov/,landmark-unique,moderate,Ensure landmarks are unique,.navigation--accessible,"<nav class=""navigation--accessible"" role=""navigation"">
+      <a class=""show-on-focus"" href=""#site-main"" target=""_self"">Skip Navigation</a>
+      <a class=""show-on-focus"" href=""#311-button"" target=""_self"">Skip to 311 Help</a>
+    </nav>"
+https://www.minneapolismn.gov/,region,moderate,Ensure all page content is contained by landmarks,.site-meta,"<div class=""site-meta"">"
+https://www.stpaul.gov/,region,moderate,Ensure all page content is contained by landmarks,.alert__title,"<h3 class=""alert__title"">
+        <a class=""alert__url"" href=""https://www.stpaul.gov/departments/public-works/snow-emergencies#sign-up-for-text-alerts"">          Get ready for winter! Sign up for snow emergency text and email alerts today. Available in five languages.
+        </a>      </h3>"
+https://www.stpaul.gov/,region,moderate,Ensure all page content is contained by landmarks,.video-player,"<div class=""video-player"" data-module=""video-player"">"
+https://www.stpaul.gov/,region,moderate,Ensure all page content is contained by landmarks,.video-banner__title,"<h1 class=""video-banner__title"">
+            Introducing Picco Pizzeria and the Midway Diner
+          </h1>"
+https://www.stpaul.gov/,region,moderate,Ensure all page content is contained by landmarks,.video-banner__text,"<p class=""video-banner__text"">
+            Get a lively look at the Midway’s two newest restaurants opening their doors, celebrating great food, community pride, and the momentum transforming the neighborhood into a vibrant destination.
+
+          </p>"
+https://www.stpaul.gov/,region,moderate,Ensure all page content is contained by landmarks,.video-banner__button.btn--arrow-white.btn--arrow:nth-child(2),"<a href=""https://www.stpaul.gov/departments/planning-and-economic-development/planning/current-activities/united-village-snelling"" class=""video-banner__button btn btn--arrow btn--arrow-white"">
+              Learn More About United Village
+            </a>"
+https://www.stpaul.gov/,region,moderate,Ensure all page content is contained by landmarks,.to-top,"<a class=""to-top"" href=""#top"" aria-label=""Back to top"">"
+https://www.duluthmn.gov/,page-has-heading-one,moderate,"Ensure that the page, or at least one of its frames contains a level-one heading",html,"<html lang=""en"">"
+https://www.rochestermn.gov/,landmark-unique,moderate,Ensure landmarks are unique,.site-search-input,"<div class=""google-search-container site-search-input"" aria-label=""Site search"" data-search=""Search"" role=""search"">"
+https://www.rochestermn.gov/,meta-viewport-large,minor,"Ensure <meta name=""viewport""> can scale a significant amount","meta[name=""viewport""]","<meta name=""viewport"" content=""width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=2"">"
+https://www.brooklynpark.org/,landmark-unique,moderate,Ensure landmarks are unique,.wp-block-kadence-navigation49054-cpt-id > .navigation-desktop-collapse-sub-menus-true.navigation-desktop-parent-active-false.navigation-desktop-parent-toggles-menus-false,"<nav class=""navigation navigatio..."">"
+https://www.ci.stcloud.mn.us/,heading-order,moderate,Ensure the order of headings is semantically correct,#miniCalendarHeadereff6385e-5062-4cc0-965b-83092a93c63a,"<span class=""cp-miniCalendar-title"" id=""miniCalendarHeadereff6385e-5062-4cc0-965b-83092a93c63a"" role=""heading"" aria-level=""3"">October 2026</span>"
+https://www.ci.stcloud.mn.us/,landmark-unique,moderate,Ensure landmarks are unique,"#graphicLinkWidgetf2c5098d-468b-4d05-ba85-db4843ada20b > .cpGrid2.widgetBody.cpGrid > .widgetGraphicLinksNav[aria-labelledby=""GraphicLinkHeaderText""]","<nav class=""widgetGraphicLinksNav"" aria-labelledby=""GraphicLinkHeaderText"">"
+https://www.ci.stcloud.mn.us/,landmark-unique,moderate,Ensure landmarks are unique,#divInfoAdv31dd174d-7232-4523-81a8-99ffd746128f,"<section id=""divInfoAdv31dd174d-7..."" class=""widget widgetInfoAdv..."" data-modulewidgettyp...=""infoAdv"" data-elementquerycla...=""{""wide-narrow"":""min-..."" data-elementquerymat...=""matchMultiColumn"" data-elementqueryunm...=""unmatchMultiColumn"" aria-label=""Info Advanced"">"
+https://www.ci.stcloud.mn.us/,region,moderate,Ensure all page content is contained by landmarks,.cpToolbar,"<div class=""cpToolbar user public"" style=""z-index: 1;"">"
+https://www.ci.stcloud.mn.us/,region,moderate,Ensure all page content is contained by landmarks,#miniCalendarHeadereff6385e-5062-4cc0-965b-83092a93c63a,"<span class=""cp-miniCalendar-title"" id=""miniCalendarHeadereff6385e-5062-4cc0-965b-83092a93c63a"" role=""heading"" aria-level=""3"">October 2026</span>"
+https://www.ci.stcloud.mn.us/,region,moderate,Ensure all page content is contained by landmarks,table,"<table role=""grid"" aria-labelledby=""miniCalendarHeaderef..."" summary=""This table represent..."">"
+https://www.ci.stcloud.mn.us/,region,moderate,Ensure all page content is contained by landmarks,"div[data-event-list-row=""true""] > p","<p class=""widgetItem"">There are no published events in current month.</p>"
+https://www.ci.stcloud.mn.us/,region,moderate,Ensure all page content is contained by landmarks,#calendarViewAlleff6385e-5062-4cc0-965b-83092a93c63a,"<a id=""calendarViewAlleff6385e-5062-4cc0-965b-83092a93c63a"" class=""widgetViewAll"" style="""" href=""/calendar.aspx?CID=23,14"">View All Events</a>"
+https://www.ci.stcloud.mn.us/,region,moderate,Ensure all page content is contained by landmarks,.cpBylineTextTS,"<span class=""cpBylineTextTS"">Government Websites by <a href=""https://connect.civicplus.com/referral"">CivicPlus®</a></span>"

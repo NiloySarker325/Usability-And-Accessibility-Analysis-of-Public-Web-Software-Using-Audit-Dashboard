@@ -56,7 +56,7 @@ try:
     st.subheader("Actionable HTML Failures")
     st.markdown("Isolate specific violations to extract the exact CSS selector and HTML snippet for remediation.")
     
-    selected_violation = st.selectbox("Isolate Violation Type", ["All Violations"] + list(df['Display Violation'].unique()))
+    selected_violation = st.selectbox("Isolagit te Violation Type", ["All Violations"] + list(df['Display Violation'].unique()))
     
     display_df = df if selected_violation == "All Violations" else df[df['Display Violation'] == selected_violation]
     
