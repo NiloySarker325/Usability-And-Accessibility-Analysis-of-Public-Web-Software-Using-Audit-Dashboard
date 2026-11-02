@@ -5,17 +5,40 @@ import plotly.express as px
 st.set_page_config(layout="wide", page_title="Accessibility Audit Dashboard")
 st.title("Section 508 Accessibility Audit")
 
-# --- 1. Data Loading ---
+# --- 1. Data Loading & Dynamic State Extraction ---
 @st.cache_data
 def load_data():
-    # Read the actual audit results generated from your urls.csv by audit.py
     df = pd.read_csv("audit_results.csv")
     
-    # Fallback: Create a 'State' column if the scraper didn't generate one, 
-    # defaulting to MN based on the provided urls.csv list.
-    if 'State' not in df.columns:
-        df['State'] = "MN"
+    # Dictionary mapping official root domains to state abbreviations
+    state_domains = {
+        "alabama.gov": "AL", "alaska.gov": "AK", "az.gov": "AZ", "arkansas.gov": "AR",
+        "ca.gov": "CA", "colorado.gov": "CO", "ct.gov": "CT", "delaware.gov": "DE",
+        "myflorida.com": "FL", "georgia.gov": "GA", "hawaii.gov": "HI", "idaho.gov": "ID",
+        "illinois.gov": "IL", "in.gov": "IN", "iowa.gov": "IA", "kansas.gov": "KS",
+        "kentucky.gov": "KY", "louisiana.gov": "LA", "maine.gov": "ME", "maryland.gov": "MD",
+        "mass.gov": "MA", "michigan.gov": "MI", "mn.gov": "MN", "ms.gov": "MS",
+        "mo.gov": "MO", "mt.gov": "MT", "nebraska.gov": "NE", "nv.gov": "NV",
+        "nh.gov": "NH", "nj.gov": "NJ", "newmexico.gov": "NM", "ny.gov": "NY",
+        "nc.gov": "NC", "nd.gov": "ND", "ohio.gov": "OH", "ok.gov": "OK",
+        "oregon.gov": "OR", "pa.gov": "PA", "ri.gov": "RI", "sc.gov": "SC",
+        "sd.gov": "SD", "tn.gov": "TN", "texas.gov": "TX", "utah.gov": "UT",
+        "vermont.gov": "VT", "virginia.gov": "VA", "wa.gov": "WA", "wv.gov": "WV",
+        "wisconsin.gov": "WI", "wyo.gov": "WY"
+    }
+    
+    def extract_state(url):
+        if pd.isna(url): 
+            return "Unknown"
+        url_lower = str(url).lower()
+        for domain, state in state_domains.items():
+            if domain in url_lower:
+                return state
+        return "Unknown"
         
+    # Dynamically extract the state from the scraped URL column
+    df['State'] = df['url'].apply(extract_state)
+    
     return df
 
 try:
@@ -46,13 +69,11 @@ try:
     st.write(f"**Showing Results for:** {display_states} ({len(filtered_df['url'].unique())} Unique URLs)")
     st.divider()
 
-    # Move the URL filter from the sidebar to the main page to free up horizontal space
     selected_url = st.selectbox("Filter by URL", ["All URLs"] + list(filtered_df['url'].unique()))
     
     if selected_url != "All URLs":
         filtered_df = filtered_df[filtered_df['url'] == selected_url]
 
-    # Adjust column ratio to give the donut chart more horizontal space (1 vs 1.2)
     col1, col2 = st.columns([1, 1.2])
     
     with col1:
