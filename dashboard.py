@@ -1,39 +1,66 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import re
+import urllib.parse
 from playwright.sync_api import sync_playwright
 from axe_playwright_python.sync_playwright import Axe
 
 st.set_page_config(layout="wide", page_title="Accessibility Audit Dashboard")
 st.title("Section 508 Accessibility Audit")
 
-# --- 1. Global State Extraction Logic ---
-state_domains = {
-    "alabama.gov": "AL", "alaska.gov": "AK", "az.gov": "AZ", "arkansas.gov": "AR",
-    "ca.gov": "CA", "colorado.gov": "CO", "ct.gov": "CT", "delaware.gov": "DE",
-    "myflorida.com": "FL", "georgia.gov": "GA", "hawaii.gov": "HI", "idaho.gov": "ID",
-    "illinois.gov": "IL", "in.gov": "IN", "iowa.gov": "IA", "kansas.gov": "KS",
-    "kentucky.gov": "KY", "louisiana.gov": "LA", "maine.gov": "ME", "maryland.gov": "MD",
-    "mass.gov": "MA", "michigan.gov": "MI", "mn.gov": "MN", "ms.gov": "MS",
-    "mo.gov": "MO", "mt.gov": "MT", "nebraska.gov": "NE", "nv.gov": "NV",
-    "nh.gov": "NH", "nj.gov": "NJ", "newmexico.gov": "NM", "ny.gov": "NY",
-    "nc.gov": "NC", "nd.gov": "ND", "ohio.gov": "OH", "ok.gov": "OK",
-    "oregon.gov": "OR", "pa.gov": "PA", "ri.gov": "RI", "sc.gov": "SC",
-    "sd.gov": "SD", "tn.gov": "TN", "texas.gov": "TX", "utah.gov": "UT",
-    "vermont.gov": "VT", "virginia.gov": "VA", "wa.gov": "WA", "wv.gov": "WV",
-    "wisconsin.gov": "WI", "wyo.gov": "WY"
+# --- 1. Global State Extraction Logic (UPDATED) ---
+state_map = {
+    "alabama": "AL", "alaska": "AK", "arizona": "AZ", "arkansas": "AR",
+    "california": "CA", "colorado": "CO", "connecticut": "CT", "delaware": "DE",
+    "florida": "FL", "georgia": "GA", "hawaii": "HI", "idaho": "ID",
+    "illinois": "IL", "indiana": "IN", "iowa": "IA", "kansas": "KS",
+    "kentucky": "KY", "louisiana": "LA", "maine": "ME", "maryland": "MD",
+    "massachusetts": "MA", "michigan": "MI", "minnesota": "MN", "mississippi": "MS",
+    "missouri": "MO", "montana": "MT", "nebraska": "NE", "nevada": "NV",
+    "newhampshire": "NH", "newjersey": "NJ", "newmexico": "NM", "newyork": "NY",
+    "northcarolina": "NC", "northdakota": "ND", "ohio": "OH", "oklahoma": "OK",
+    "oregon": "OR", "pennsylvania": "PA", "rhodeisland": "RI", "southcarolina": "SC",
+    "southdakota": "SD", "tennessee": "TN", "texas": "TX", "utah": "UT",
+    "vermont": "VT", "virginia": "VA", "washington": "WA", "westvirginia": "WV",
+    "wisconsin": "WI", "wyoming": "WY"
 }
 
+two_letter_codes = set(state_map.values())
+
 def extract_state(url):
-    if pd.isna(url): 
-        return "Unknown"
-    url_lower = str(url).lower()
-    for domain, state in state_domains.items():
-        if domain in url_lower:
-            return state
+    if pd.isna(url): return "Unknown"
+    
+    try:
+        domain = urllib.parse.urlparse(str(url).lower()).netloc
+        if not domain:
+            domain = str(url).lower()
+    except:
+        domain = str(url).lower()
+        
+    # 1. Check for full state names in domain (e.g., minnesotastate.edu)
+    for name, abbrev in state_map.items():
+        if name in domain:
+            return abbrev
+            
+    # 2. Check for .state.xx.us or .xx.us (e.g., state.mn.us or mn.us)
+    match_us = re.search(r'\.(state\.)?([a-z]{2})\.us\b', domain)
+    if match_us and match_us.group(2).upper() in two_letter_codes:
+        return match_us.group(2).upper()
+        
+    # 3. Check for xx.gov or xx.edu (e.g., mn.gov)
+    match_gov = re.search(r'\b([a-z]{2})\.(gov|edu)\b', domain)
+    if match_gov and match_gov.group(1).upper() in two_letter_codes:
+        return match_gov.group(1).upper()
+        
+    # 4. Check for xxstate (e.g., mnstate.edu)
+    match_xxstate = re.search(r'\b([a-z]{2})state\b', domain)
+    if match_xxstate and match_xxstate.group(1).upper() in two_letter_codes:
+        return match_xxstate.group(1).upper()
+        
     return "Unknown"
 
-# --- 2. Reusable Visuals Function (Don't Repeat Yourself) ---
+# --- 2. Reusable Visuals Function ---
 def render_dashboard_visuals(filtered_df, key_prefix):
     if filtered_df.empty:
         st.info("No compliance violations found for the selected filters (or no data available).")
@@ -99,7 +126,6 @@ tab1, tab2 = st.tabs(["Batch Analysis (CSV)", "Individual Live Checker"])
 with tab1:
     st.header("Batch CSV Analysis")
     try:
-        # Load data once and cache it
         @st.cache_data
         def load_batch_data():
             df = pd.read_csv("audit_results.csv")
@@ -110,7 +136,6 @@ with tab1:
             
         batch_df = load_batch_data()
         
-        # State Filter
         state_options = ["All States"] + sorted(batch_df['State'].unique().tolist())
         selected_states = st.multiselect("Choose States to Analyze:", options=state_options, default=["All States"], key="batch_state")
         
@@ -119,14 +144,12 @@ with tab1:
         else:
             filtered_batch_df = batch_df[batch_df['State'].isin(selected_states)]
             
-        # URL Filter
         url_options = ["All URLs"] + list(filtered_batch_df['url'].unique())
         selected_urls = st.multiselect("Choose addresses to display:", options=url_options, default=["All URLs"], key="batch_url")
         
         if "All URLs" not in selected_urls and selected_urls:
             filtered_batch_df = filtered_batch_df[filtered_batch_df['url'].isin(selected_urls)]
 
-        # Render charts
         render_dashboard_visuals(filtered_batch_df, key_prefix="batch")
 
     except FileNotFoundError:
@@ -141,17 +164,14 @@ with tab2:
     st.header("Live Individual Checker")
     st.markdown("Enter URLs manually below to run a live Section 508 accessibility audit.")
     
-    # Text area for user input
-    url_input = st.text_area("Enter Web Addresses (one per line):", placeholder="https://mn.gov/admin/\nhttps://www.alabama.gov/")
+    url_input = st.text_area("Enter Web Addresses (one per line):", placeholder="https://www.mda.state.mn.us/\nhttps://www.alabama.gov/")
     
     if st.button("Run Live Audit"):
-        # Clean up the input string into a list of URLs
         raw_urls = [u.strip() for u in url_input.split('\n') if u.strip()]
         
         if not raw_urls:
             st.error("Please enter at least one URL.")
         else:
-            # Show a loading spinner while Playwright runs in the background
             with st.spinner(f'Auditing {len(raw_urls)} URLs in a headless browser... This may take a moment.'):
                 live_results = []
                 with sync_playwright() as p:
@@ -159,7 +179,6 @@ with tab2:
                     page = browser.new_page()
                     
                     for url in raw_urls:
-                        # Ensure http/https prefix exists so Playwright doesn't crash
                         if not url.startswith("http"):
                             url = "https://" + url
                             
@@ -183,7 +202,6 @@ with tab2:
                     
                     browser.close()
                 
-                # Save the custom live results into Streamlit's temporary session state
                 if live_results:
                     live_df = pd.DataFrame(live_results)
                     live_df['State'] = live_df['url'].apply(extract_state)
@@ -194,7 +212,6 @@ with tab2:
                     st.success("Audit complete! No accessibility violations found on the entered URLs.")
                     st.session_state['live_audit_results'] = None
 
-    # Render results if they exist in the current session
     if 'live_audit_results' in st.session_state and st.session_state['live_audit_results'] is not None:
         st.success("Live audit complete!")
         live_df = st.session_state['live_audit_results']
@@ -203,16 +220,13 @@ with tab2:
         col_f1, col_f2 = st.columns(2)
         
         with col_f1:
-            # State Filter (Optional)
             live_state_options = ["All States"] + sorted(live_df['State'].unique().tolist())
             selected_live_states = st.multiselect("Filter by State (Optional):", options=live_state_options, default=["All States"], key="live_state")
             
         with col_f2:
-            # URL Filter (Multiple Selection)
             live_url_options = ["All URLs"] + list(live_df['url'].unique())
             selected_live_urls = st.multiselect("Choose addresses to display:", options=live_url_options, default=["All URLs"], key="live_url")
 
-        # Apply filters
         filtered_live_df = live_df
         if "All States" not in selected_live_states and selected_live_states:
             filtered_live_df = filtered_live_df[filtered_live_df['State'].isin(selected_live_states)]
@@ -220,5 +234,4 @@ with tab2:
         if "All URLs" not in selected_live_urls and selected_live_urls:
             filtered_live_df = filtered_live_df[filtered_live_df['url'].isin(selected_live_urls)]
 
-        # Render charts using the reusable function
         render_dashboard_visuals(filtered_live_df, key_prefix="live")
