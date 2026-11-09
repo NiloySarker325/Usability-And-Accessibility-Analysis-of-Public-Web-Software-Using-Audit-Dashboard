@@ -9,7 +9,7 @@ from axe_playwright_python.sync_playwright import Axe
 st.set_page_config(layout="wide", page_title="Accessibility Audit Dashboard")
 st.title("Section 508 Accessibility Audit")
 
-# --- 1. Global State Extraction Logic (UPDATED) ---
+# --- 1. Global State Extraction Logic ---
 state_map = {
     "alabama": "AL", "alaska": "AK", "arizona": "AZ", "arkansas": "AR",
     "california": "CA", "colorado": "CO", "connecticut": "CT", "delaware": "DE",
@@ -38,29 +38,63 @@ def extract_state(url):
     except:
         domain = str(url).lower()
         
-    # 1. Check for full state names in domain (e.g., minnesotastate.edu)
     for name, abbrev in state_map.items():
-        if name in domain:
-            return abbrev
+        if name in domain: return abbrev
             
-    # 2. Check for .state.xx.us or .xx.us (e.g., state.mn.us or mn.us)
     match_us = re.search(r'\.(state\.)?([a-z]{2})\.us\b', domain)
-    if match_us and match_us.group(2).upper() in two_letter_codes:
-        return match_us.group(2).upper()
+    if match_us and match_us.group(2).upper() in two_letter_codes: return match_us.group(2).upper()
         
-    # 3. Check for xx.gov or xx.edu (e.g., mn.gov)
     match_gov = re.search(r'\b([a-z]{2})\.(gov|edu)\b', domain)
-    if match_gov and match_gov.group(1).upper() in two_letter_codes:
-        return match_gov.group(1).upper()
+    if match_gov and match_gov.group(1).upper() in two_letter_codes: return match_gov.group(1).upper()
         
-    # 4. Check for xxstate (e.g., mnstate.edu)
     match_xxstate = re.search(r'\b([a-z]{2})state\b', domain)
-    if match_xxstate and match_xxstate.group(1).upper() in two_letter_codes:
-        return match_xxstate.group(1).upper()
+    if match_xxstate and match_xxstate.group(1).upper() in two_letter_codes: return match_xxstate.group(1).upper()
         
     return "Unknown"
 
-# --- 2. Reusable Visuals Function ---
+# --- 2. Centralized Playwright Audit Engine ---
+def perform_live_audit(urls):
+    """Runs a live Axe audit on a list of URLs with a Streamlit progress bar."""
+    results = []
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        
+        for i, url in enumerate(urls):
+            if not str(url).startswith("http"):
+                url = "https://" + str(url)
+                
+            status_text.text(f"Auditing ({i+1}/{len(urls)}): {url}")
+            try:
+                page.goto(url, timeout=30000)
+                axe = Axe()
+                axe_results = axe.run(page)
+                
+                for violation in axe_results.response.get("violations", []):
+                    for node in violation.get("nodes", []):
+                        results.append({
+                            "url": url,
+                            "violation_id": violation.get("id"),
+                            "impact": violation.get("impact"),
+                            "description": violation.get("description"),
+                            "css_selector": ", ".join(node.get("target", [])),
+                            "html_snippet": node.get("html")
+                        })
+            except Exception as e:
+                pass # Skip dead links gracefully
+            
+            progress_bar.progress((i + 1) / len(urls))
+            
+        browser.close()
+        status_text.empty()
+        progress_bar.empty()
+        
+    return results
+
+# --- 3. Reusable Visuals Function ---
 def render_dashboard_visuals(filtered_df, key_prefix):
     if filtered_df.empty:
         st.info("No compliance violations found for the selected filters (or no data available).")
@@ -117,7 +151,7 @@ def render_dashboard_visuals(filtered_df, key_prefix):
         }
     )
 
-# --- 3. Dashboard Layout & Tabs ---
+# --- 4. Dashboard Layout & Tabs ---
 tab1, tab2 = st.tabs(["Batch Analysis (CSV)", "Individual Live Checker"])
 
 # ==========================================
@@ -125,37 +159,76 @@ tab1, tab2 = st.tabs(["Batch Analysis (CSV)", "Individual Live Checker"])
 # ==========================================
 with tab1:
     st.header("Batch CSV Analysis")
-    try:
-        @st.cache_data
-        def load_batch_data():
-            df = pd.read_csv("audit_results.csv")
-            df['State'] = df['url'].apply(extract_state)
-            df['Display Impact'] = df['impact'].str.title()
-            df['Display Violation'] = df['violation_id'].str.replace('-', ' ').str.title()
-            return df
-            
-        batch_df = load_batch_data()
-        
-        state_options = ["All States"] + sorted(batch_df['State'].unique().tolist())
-        selected_states = st.multiselect("Choose States to Analyze:", options=state_options, default=["All States"], key="batch_state")
-        
-        if "All States" in selected_states or not selected_states:
-            filtered_batch_df = batch_df
+    st.info("This audit is currently running on the pre-computed results from the automated 'urls.csv'. If you want, you can drag and drop your own URL CSV below to run a fresh audit!")
+    
+    # Drag and Drop File Uploader
+    uploaded_file = st.file_uploader("Upload your own CSV file (must contain a 'url' column):", type=["csv"])
+    
+    display_batch_df = None
+    
+    # Logic for Uploaded CSV
+    if uploaded_file is not None:
+        upload_df = pd.read_csv(uploaded_file)
+        if 'url' not in upload_df.columns:
+            st.error("Error: The uploaded CSV must contain a column named 'url'.")
         else:
-            filtered_batch_df = batch_df[batch_df['State'].isin(selected_states)]
+            st.success(f"Successfully loaded {len(upload_df)} URLs from your CSV.")
+            if st.button("Run Audit on Uploaded CSV"):
+                raw_urls = upload_df['url'].dropna().tolist()
+                results = perform_live_audit(raw_urls)
+                
+                if results:
+                    res_df = pd.DataFrame(results)
+                    res_df['State'] = res_df['url'].apply(extract_state)
+                    res_df['Display Impact'] = res_df['impact'].str.title()
+                    res_df['Display Violation'] = res_df['violation_id'].str.replace('-', ' ').str.title()
+                    st.session_state['uploaded_batch_results'] = res_df
+                else:
+                    st.session_state['uploaded_batch_results'] = "EMPTY"
+                    st.success("Audit complete! No violations found.")
+                    
+        # Load results from session state if they exist
+        if 'uploaded_batch_results' in st.session_state:
+            if isinstance(st.session_state['uploaded_batch_results'], pd.DataFrame):
+                display_batch_df = st.session_state['uploaded_batch_results']
             
-        url_options = ["All URLs"] + list(filtered_batch_df['url'].unique())
-        selected_urls = st.multiselect("Choose addresses to display:", options=url_options, default=["All URLs"], key="batch_url")
+    # Logic for Default Pre-Computed CSV (if no file is uploaded)
+    else:
+        try:
+            @st.cache_data
+            def load_batch_data():
+                df = pd.read_csv("audit_results.csv")
+                df['State'] = df['url'].apply(extract_state)
+                df['Display Impact'] = df['impact'].str.title()
+                df['Display Violation'] = df['violation_id'].str.replace('-', ' ').str.title()
+                return df
+                
+            display_batch_df = load_batch_data()
+        except FileNotFoundError:
+            st.warning("No default audit_results.csv found. Run audit.py in the terminal or upload a custom CSV above.")
+
+    # Render Filters and Charts for Tab 1
+    if display_batch_df is not None and not display_batch_df.empty:
+        st.markdown("### Filter Results")
+        col_f1, col_f2 = st.columns(2)
         
+        with col_f1:
+            state_options = ["All States"] + sorted(display_batch_df['State'].unique().tolist())
+            selected_states = st.multiselect("Choose States to Analyze:", options=state_options, default=["All States"], key="batch_state")
+            
+        with col_f2:
+            url_options = ["All URLs"] + list(display_batch_df['url'].unique())
+            selected_urls = st.multiselect("Choose addresses to display:", options=url_options, default=["All URLs"], key="batch_url")
+
+        filtered_batch_df = display_batch_df
+        if "All States" not in selected_states and selected_states:
+            filtered_batch_df = filtered_batch_df[filtered_batch_df['State'].isin(selected_states)]
+            
         if "All URLs" not in selected_urls and selected_urls:
             filtered_batch_df = filtered_batch_df[filtered_batch_df['url'].isin(selected_urls)]
 
         render_dashboard_visuals(filtered_batch_df, key_prefix="batch")
 
-    except FileNotFoundError:
-        st.warning("No audit_results.csv found. Run audit.py in the terminal first to generate batch data.")
-    except Exception as e:
-        st.error(f"An error occurred loading the batch dashboard: {e}")
 
 # ==========================================
 # TAB 2: INDIVIDUAL CHECKER
@@ -172,45 +245,17 @@ with tab2:
         if not raw_urls:
             st.error("Please enter at least one URL.")
         else:
-            with st.spinner(f'Auditing {len(raw_urls)} URLs in a headless browser... This may take a moment.'):
-                live_results = []
-                with sync_playwright() as p:
-                    browser = p.chromium.launch(headless=True)
-                    page = browser.new_page()
-                    
-                    for url in raw_urls:
-                        if not url.startswith("http"):
-                            url = "https://" + url
-                            
-                        try:
-                            page.goto(url, timeout=30000)
-                            axe = Axe()
-                            axe_results = axe.run(page)
-                            
-                            for violation in axe_results.response.get("violations", []):
-                                for node in violation.get("nodes", []):
-                                    live_results.append({
-                                        "url": url,
-                                        "violation_id": violation.get("id"),
-                                        "impact": violation.get("impact"),
-                                        "description": violation.get("description"),
-                                        "css_selector": ", ".join(node.get("target", [])),
-                                        "html_snippet": node.get("html")
-                                    })
-                        except Exception as e:
-                            st.warning(f"Failed to audit {url}: {e}")
-                    
-                    browser.close()
-                
-                if live_results:
-                    live_df = pd.DataFrame(live_results)
-                    live_df['State'] = live_df['url'].apply(extract_state)
-                    live_df['Display Impact'] = live_df['impact'].str.title()
-                    live_df['Display Violation'] = live_df['violation_id'].str.replace('-', ' ').str.title()
-                    st.session_state['live_audit_results'] = live_df
-                else:
-                    st.success("Audit complete! No accessibility violations found on the entered URLs.")
-                    st.session_state['live_audit_results'] = None
+            results = perform_live_audit(raw_urls)
+            
+            if results:
+                live_df = pd.DataFrame(results)
+                live_df['State'] = live_df['url'].apply(extract_state)
+                live_df['Display Impact'] = live_df['impact'].str.title()
+                live_df['Display Violation'] = live_df['violation_id'].str.replace('-', ' ').str.title()
+                st.session_state['live_audit_results'] = live_df
+            else:
+                st.success("Audit complete! No accessibility violations found on the entered URLs.")
+                st.session_state['live_audit_results'] = None
 
     if 'live_audit_results' in st.session_state and st.session_state['live_audit_results'] is not None:
         st.success("Live audit complete!")
