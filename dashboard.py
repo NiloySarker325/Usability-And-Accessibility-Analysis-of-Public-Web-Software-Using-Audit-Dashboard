@@ -159,7 +159,7 @@ tab1, tab2 = st.tabs(["Batch Analysis (CSV)", "Individual Live Checker"])
 # ==========================================
 with tab1:
     st.header("Batch CSV Analysis")
-    st.info("This audit is currently running on the pre-computed results from the automated 'urls.csv'. If you want, you can drag and drop your own URL CSV below to run a fresh audit!")
+    st.info("This audit is currently running on the pre-computed results from the automated 'audit_results.csv'. If you want, you can drag and drop your own URL CSV below to run a fresh audit!")
     
     # Drag and Drop File Uploader
     uploaded_file = st.file_uploader("Upload your own CSV file (must contain a 'url' column):", type=["csv"])
